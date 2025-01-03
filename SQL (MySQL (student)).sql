@@ -1,3 +1,4 @@
+-- SQL ( MySQL Database )
 -- 1) CREATE TABLE
 
 create table Student (
@@ -46,7 +47,7 @@ alter table student modify fee varchar(255);
 -- 4) Update  --> update records in a table
 update student set firstName = "Pawan" where Roll_no = 1; 
 
---  =========================================================================================== 
+--  ========================================================================================================
 -- 5) Delete (Statement) --> Use to remove(Delete) 'rows' from table based on a condition                   --------------------------------------------
 delete from student where Roll_no = 22;
 delete from student where class = 10;
@@ -69,7 +70,7 @@ select * from company;
 
 
 
--- 8) Aggregation Functions   ====================================================================
+-- 8) Aggregation Functions   =======================================================================================
 -- 1) Numeric function
 select count(firstName) from student;
 select sum(mark) from student;
@@ -93,7 +94,7 @@ select current_date();
 
 
 
--- 9) Key words  =========================================================================
+-- 9) Key words  =========================================================================================================
 -- 1) Where (clause) --> Use to Filter rows before grouping in a query
 select * from student where mark >= 85;
 select * from Student where Roll_no >=24;
@@ -147,12 +148,14 @@ END as class from student order by class;
 select * from student;
 
 
--- 10) Logical =========================================================================================
+-- 10) Logical, Relational, and Arthmetic Operation =====================================================================================
 
+-- Logical ---------------------------------------------
 -- 1) AND , OR , NOT
 select * FROM student where mark=80 AND mark>=80;
 SELECT * FROM student where firstName = "Anil" OR Mark > 80;
 
+-- Relational -----------------------------------------
 -- 2) Between  --> Use in where clause,   to select Range of data b/w two two values
 select * from student where mark between 80 and 90;
 
@@ -169,8 +172,11 @@ select * from student where firstName like 'A%';
 
 -- 6) exists --> values present
 -- 7) unique --> values is unique not repated
- 
- 
+
+-- Arthmetic --> ( +, -, *, / ) ------------------------------
+update emp set esal= esal + 7000 wher eid= 5;
+
+ -- ======================================================================================================================
 
 -- 11) Constraint --> not null, unique, check, primary key, foreign key, auto_increment, default 
 -- 1) Not null  -->  not accept null values
@@ -203,9 +209,10 @@ select * from book;
 drop table Book;
 SHOW tables;
 
--- =========================================================================================
+
+-- =========================================================================================================================
 -- 12) Set (Operation) 
--- 1) Union (Operation) --> Combine the result set of two or more SELECT statements (unique value)  -----------------------------
+-- 1) Union (Operation) --> Combine the result set of two or more SELECT statements (unique value)  ---------------------
 select firstName from student union select name from employer;
 select * from student UNION select * from employer;
 
@@ -218,11 +225,11 @@ select * from student INTERSECT select * from employer;
 -- 4) Minus --> 
 select * from student MINUS select * from employer;
 
-
 select * from student;
 select * from employer;
 
--- =========================================================================================
+
+-- ==================================================================================================================
 -- 13) Join (Operation)  -- Combine 'Rows' from two or more table based on related 'Column' b/w them
 -- 1) inner join / join  --> Return roes that have matching values in both tables
 select student.Roll_no, student.firstName, student.class from student 
@@ -246,7 +253,7 @@ select * from student full join book on student.Roll_no = book.ID;
  
  
 
--- 14) Database Objects  =====================================================================================
+-- 14) Database Objects  ============================================================================================
 -- 1) Trigger --> Used to specify set of action that are automatically performed (insert,update,delete)
 -- 2) view, materialized view -->View is a virtual table derived from one or more tables, while  materialized view is a physical copy of result set of query stored for faster data retrieval
 -- 3) database and schema --> Database is collection of table and data, while schema is collection of database objects, including table, viezs and stored procedures
@@ -264,8 +271,8 @@ select * from student full join book on student.Roll_no = book.ID;
 -- 5) Revoke --> removes permissions if any granted to the users on database objects
 
 
--- ==================================================================================================
--- ==================================================================================================
+-- ===============================================================================================================
+-- ===============================================================================================================
 -- MySQL start Procedure
 -- Changing Default Delimiter
 -- Creating and Call Stored Procedure
@@ -274,8 +281,8 @@ select * from student full join book on student.Roll_no = book.ID;
 -- Drop procedure
 -- Alter procedure
 
--- ===============================================================================================
--- ==============================================================================================
+-- ============================================================================================================
+-- ============================================================================================================
 -- 1) Trigger --> Used to specify set of action that are automatically performed (insert,update,delete)
 -- Before insert
 -- After insert
