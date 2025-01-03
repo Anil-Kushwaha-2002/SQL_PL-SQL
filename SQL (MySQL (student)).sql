@@ -204,10 +204,20 @@ drop table Book;
 SHOW tables;
 
 -- =========================================================================================
--- 12) Union (Operation) --> Combine the result set of two or more SELECT statements   --------------------------------
-select firstName from student
-union
-select name from employer;
+-- 12) Set (Operation) 
+-- 1) Union (Operation) --> Combine the result set of two or more SELECT statements (unique value)  -----------------------------
+select firstName from student union select name from employer;
+select * from student UNION select * from employer;
+
+-- 2) Union All --> Duplicate value also present
+select * from student UNION ALL select * from employer;
+
+-- 3) Intersect --> Only unique value from both table
+select * from student INTERSECT select * from employer;
+
+-- 4) Minus --> 
+select * from student MINUS select * from employer;
+
 
 select * from student;
 select * from employer;
