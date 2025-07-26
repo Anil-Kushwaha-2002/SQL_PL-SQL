@@ -1,4 +1,4 @@
--- SQL ( MySQL Database )
+-- # SQL ( MySQL Database )
 -- 1) CREATE TABLE
 
 create table Student (
