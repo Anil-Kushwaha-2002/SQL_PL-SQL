@@ -1,0 +1,86 @@
+-- # Library Management system  
+
+use library                    // DB create
+use student           
+show dbs                       // All DB show   
+   
+db.createCollection("books")  // Table (collection) create   
+show collections              // All Table (collection) show
+
+db.books.find()               // all books Data show
+
+db
+db.dropDatabase()             // DB delete
+db.student.drop()             // collection delete
+db.library.drop()
+
+
+-- ===========================================================================
+-- # Insert Data (Object)      
+-- insert({})
+-- insertOne({}) 
+-- insertMany([{},{},{}])
+
+db.books.insertOne({
+Name : 'Java',
+pages: 500, 
+price:1000})
+
+db.books.insertMany( [{
+Name : 'Python',
+pages: 200, 
+price:400},
+{
+Name:'javascript', 
+pages:300,
+price: 4500}])
+
+db.books.insert({
+Name:"MongoDB", 
+Page: 100, 
+price: 3500, 
+Author: "AKM"})
+
+
+-- =============================================================================
+--# Data Update           
+-- update({},{{}})
+-- updateOne({},{{}}) 
+-- updateMany({},{{, , ,}})
+
+db.books.update(
+{ _id: ObjectId('667f0794e93cd2d54e90defe')},
+{$set:{name: 'Core Java',pages:12000, price: 7000}})
+
+db.books.updateOne({ _id: ObjectId('6679f0d54ddb08f20090df02')},
+{{$rename:{name:"bookName"}})
+
+
+-- =============================================================================
+-- # Deleting the object    
+-- remove({})
+-- deleteOne()
+-- deleteMant()
+
+db.books.remove({ _id: ObjectId('6679f0d54ddb08f20090df02')})
+
+
+-- =============================================================================
+-- # Data select      
+-- find()                        // find all collection (Data)
+-- find().pretty()
+-- find().limit(2)
+-- db.books.find().sort({})     // Comparison Operators --> $eq,$gt,$lt,$in, $size
+-- db.books.find({{}})          // logic Operations --> $and,$or,$not
+
+db.books.find()                 
+db.books.find().pretty() 
+db.books.find().limit(2)
+db.books.find().sort({price:1})   // 1 --> increasing And -1 --> decreasing 
+db.books.find({price:{$eq:3500}})
+
+db.books.find({$and:[{pages:500},{price:1000}]})
+
+
+
+
